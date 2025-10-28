@@ -56,7 +56,7 @@ public class Pracownicy {
         return pracownicyWFirmie;
     }
 
-    // --- Sortowanie alfabetyczne po nazwisku ---
+    //ortowanie alfabetyczne po nazwisku
     public List<Pracownik> posortowaniPoNazwisku() {
         return pracownicy.stream()
                 .sorted(Comparator.comparing(Pracownik::getNazwisko)
@@ -64,19 +64,19 @@ public class Pracownicy {
                 .collect(Collectors.toList());
     }
 
-    // --- Grupowanie po stanowisku ---
+    // Grupowanie po stanowisku
     public Map<Stanowisko, List<Pracownik>> grupujPoStanowisku() {
         return pracownicy.stream()
                 .collect(Collectors.groupingBy(Pracownik::getStanowisko));
     }
 
-    // --- Zliczanie pracowników na stanowiskach ---
+    //Zliczanie pracowników na stanowiskach
     public Map<Stanowisko, Long> liczbaNaStanowisku() {
         return pracownicy.stream()
                 .collect(Collectors.groupingBy(Pracownik::getStanowisko, Collectors.counting()));
     }
 
-    // --- Średnie wynagrodzenie ---
+    //Średnie wynagrodzenie
     public double srednieWynagrodzenie() {
         return pracownicy.stream()
                 .mapToInt(Pracownik::getWynagrodzenie)
@@ -84,7 +84,7 @@ public class Pracownicy {
                 .orElse(0);
     }
 
-    // --- Pracownik z najwyższym wynagrodzeniem ---
+    //Pracownik z najwyższym wynagrodzeniem
     public Optional<Pracownik> najlepiejOplacany() {
         return pracownicy.stream()
                 .max(Comparator.comparingInt(Pracownik::getWynagrodzenie));

@@ -13,10 +13,12 @@ public class Pracownik {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pracownik pracownik = (Pracownik) o;
-        return adresEmail.equals(pracownik.adresEmail);
+        if (this == o){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     @Override
